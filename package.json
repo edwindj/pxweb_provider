@@ -1,0 +1,25 @@
+{
+  "name": "pxweb.js",
+  "version": "0.0.1",
+  "description": "pxweb provider for StatMine",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "test": "node lib/index.js",
+    "build": "tsc",
+    "start": "tsc -w",
+    "postinstall": "typings install"
+  },
+  "author": "Edwin de Jonge / Jan van der Laan",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^2.13.6",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.3"
+  },
+  "dependencies": {
+    "superagent": "^2.2.0",
+    "when": "^3.7.7"
+  }
+}
