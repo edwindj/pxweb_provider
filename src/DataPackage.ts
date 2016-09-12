@@ -13,7 +13,7 @@ export interface Field {
 };
 
 export interface Schema {
-    fields: [Field]
+    fields: Field[]
 }
 
 // extension
@@ -23,7 +23,7 @@ export interface Category{
     description?: string
 }
 
-export interface Catogorical extends Field{
+export interface Categorical extends Field{
     categories: Category[],
     default?: string,
     agg?: string
