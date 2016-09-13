@@ -31,10 +31,7 @@ export interface JsonStat{
 import {Schema, Field, DataPackage}  from './DataPackage';
 
 //higher order utility function: creates a function that checks if it is part of a collection
-function is_a<T>(collection?: T[]){
-  if (!collection){
-    return ((value) => false);
-  }
+function is_a<T>(collection: T[]){
   return ((value: T) => collection.indexOf(value) > -1);
 }
 
@@ -47,6 +44,13 @@ function to_hash(index){
     return hash;
   }
   return index;
+}
+
+function to_keys(index){
+  if (index.constructor === Array){
+    return index;   
+  }
+  return Object.keys(index);
 }
 
 function to_DataPackage(data: JsonStat, id?: string){
@@ -106,7 +110,6 @@ export function to_data(data: JsonStat, dp?: DataPackage){
   const value = data.dataset.value;
   const size = data.dataset.dimension.size;
   
-  
   for (let i in value){
   }
   return dp;
@@ -116,28 +119,36 @@ export function to_data(data: JsonStat, dp?: DataPackage){
 // let dp = to_DataPackage(jstat, "hello");
 // console.log(JSON.stringify(dp));
 
-const j_data:JsonStat = require("../examples/order_v1.json");
+// const j_data:JsonStat = require("../examples/order_v1.json");
 
-const data = to_data(j_data);
-console.log(JSON.stringify(data));
+// const data = to_data(j_data);
+// console.log(JSON.stringify(data));
 
-const idx = 5;
-const size = [2, 3];
+// const idx = 5;
+// const size = [2, 3];
 
-let c_size = size.slice().reverse();
-let factor = 1;
-for (let i in c_size){
-  const f = factor * c_size[i];
-  c_size[i] = factor;
-  factor = f;
-}
-c_size = c_size.reverse();
+// let c_size = size.slice().reverse();
+// let factor = 1;
+// for (let i in c_size){
+//   const f = factor * c_size[i];
+//   c_size[i] = factor;
+//   factor = f;
+// }
+// c_size = c_size.reverse();
 
-let index = [];
-for (let i in size){
-  index[i] = Math.floor(idx/c_size[i]) % size[i];
-  console.log("i", size[i], c_size[i])
-}
+// let index = [];
+// for (let i in size){
+//   index[i] = Math.floor(idx/c_size[i]) % size[i];
+//   console.log("i", size[i], c_size[i])
+// }
 
-//console.log(c_size);
-//console.log(index);
+//full Array
+// let dimension = j_data.dataset.dimension;
+// let role = dimension.role || {metric: [] as string[]};
+// const is_metric = is_a(role.metric);
+
+// const cats_values: (string[])[]= [];
+// for (let code of dimension.id){
+//   const d: Dimension = dimension[code];
+//   cats_values.push(to_keys(d.category.index));
+// }
