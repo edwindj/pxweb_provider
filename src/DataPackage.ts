@@ -23,7 +23,7 @@ export interface Category{
     description?: string
 }
 
-export interface Categorical extends Field{
+export interface Categorical extends Field {
     categories: Category[],
     default?: string,
     agg?: string
@@ -31,9 +31,11 @@ export interface Categorical extends Field{
 
 export interface Resource{
     path: string,
+    name?: string,
     schema: Schema
 
 }
+
 export interface DataPackage {
     name: string,
     title?: string,
