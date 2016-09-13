@@ -9,7 +9,7 @@ export function build_query(filter, selection=[], format="csv"){
                 values: filter[code]
             }
         };
-        qf.push(code_filter)
+        qf.push(code_filter);
     }
     selection = selection.filter((code) => filter[code] === undefined);
     qf.push({code: "ContentsCode", selection:{filter: "item", values: selection}})
