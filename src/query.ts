@@ -1,4 +1,4 @@
-export function build_query(filter, selection=[], format="csv"){
+export function build_query(filter, selection=[], format="json"){
     const query = {filter :[], response: {format: format}};
     const qf = query.filter;
     for (let code of filter){

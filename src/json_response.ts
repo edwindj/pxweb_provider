@@ -45,6 +45,5 @@ export function to_data(json: Response): Object[]{
     return vals;
 }
 
-
 // let json = require("../examples/json_response.json");
 // to_data(json);
