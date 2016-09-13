@@ -21,7 +21,7 @@ function to_TableInfo(item: Px.TableItem): TableInfo {
     };
 }
 
-function to_DataPackage(id: string, meta: Px.TableMeta){
+function to_DataPackage(id: string, meta: Px.TableMeta): DataPackage{
     const schema: Schema = {fields:[]};
     const dp: DataPackage = {name: id, title: meta.title,
          resources:[{ path:"?", schema:schema}]
@@ -54,6 +54,7 @@ function to_DataPackage(id: string, meta: Px.TableMeta){
             schema.fields.push(field);
         }
     }
+    return dp;
 }
 
 function get_item_list(url: string, id: string = ""): Promise<Px.ListItem[]>{
@@ -83,10 +84,8 @@ export function get_table_list(): Promise<TableInfo[]>{
       });
 }
 
-
 // client(BASE)
 //   .then( (res: rest.Response) => res.entity)
 //   .then((items: ListItem[]) => items.map(to_TableInfo))
 //   .then(console.log)
 //   ;
-get_table_list().then(console.log);

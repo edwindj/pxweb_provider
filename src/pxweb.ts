@@ -22,32 +22,6 @@ export interface TableMeta {
     variables: Variable[]
 }
 
-export enum ColumnType{"d", "c", "t"};
-
-export interface Column{
-    code: string,
-    text: string,
-    comment?: string,
-    type: ColumnType;
-}
-
-export interface Comment {
-    variable: string,
-    value: string,
-    comment: string
-}
-
-export interface DataItem {
-    key: string[],
-    values: string[]
-}
-
-export interface json_response {
-    columns: Column[],
-    comments?: Comment[],
-    data: DataItem[]
-}
-
 export function build_query(filter, selection=[], format="csv"){
     const query = {filter :[], response: {format: format}};
     const qf = query.filter;
